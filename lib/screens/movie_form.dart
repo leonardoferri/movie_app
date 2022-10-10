@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:uuid/uuid.dart';
 
 import '../models/movie.dart';
 import '../provider/movies.dart';
@@ -45,6 +46,8 @@ class _MovieFormState extends State<MovieForm> {
       final Movie movie = ModalRoute.of(context)!.settings.arguments as Movie;
       _loadFormData(movie);
     }
+
+    _formData['rating'] = initialRating.toString();
   }
 
   @override
@@ -58,9 +61,10 @@ class _MovieFormState extends State<MovieForm> {
 
                 if (isValid) {
                   _form.currentState!.save();
+                  String id = Uuid().v4();
                   Provider.of<MoviesProvider>(context, listen: false).put(
                     Movie(
-                        id: _formData['id'],
+                        id: id,
                         title: _formData['title']!,
                         rating: double.parse(_formData['rating']!),
                         review: _formData['review']!,

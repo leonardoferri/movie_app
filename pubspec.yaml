@@ -14,6 +14,9 @@ dependencies:
   provider:
   flutter_rating_bar:
   uuid: ^3.0.6
+  http:
+  firebase_core: 
+  cloud_firestore: 
 
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.1.5

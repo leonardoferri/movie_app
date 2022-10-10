@@ -13,4 +13,12 @@ class Movie {
       this.imageUrl,
       required this.rating,
       required this.review});
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "title": title,
+        "imageUrl": imageUrl,
+        "rating": rating.toString(),
+        "review": review,
+      };
 }
