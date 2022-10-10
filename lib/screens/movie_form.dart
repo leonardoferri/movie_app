@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -64,7 +65,7 @@ class _MovieFormState extends State<MovieForm> {
                   String id = Uuid().v4();
                   Provider.of<MoviesProvider>(context, listen: false).put(
                     Movie(
-                        id: id,
+                        id: _formData['id'],
                         title: _formData['title']!,
                         rating: double.parse(_formData['rating']!),
                         review: _formData['review']!,

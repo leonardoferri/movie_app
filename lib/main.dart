@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         routes: {
-          AppRoutes.HOME: (_) => const MovieList(),
+          AppRoutes.HOME: (_) => MovieList(),
           AppRoutes.MOVIE_FORM: (_) => MovieForm()
         },
       ),
