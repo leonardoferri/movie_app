@@ -57,8 +57,8 @@ class _ReviewDescription extends StatelessWidget {
                 ),
               ),
               Text(
-                movie.review.trim().length > 182
-                    ? '${movie.review.trim().substring(0, 182)}...'
+                movie.review.length > 175
+                    ? '${movie.review.substring(0, 175)}...'
                     : movie.review,
                 maxLines: 5,
                 textAlign: TextAlign.justify,
