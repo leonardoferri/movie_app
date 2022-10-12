@@ -114,7 +114,8 @@ class _MovieFormState extends State<MovieForm> {
                 TextFormField(
                   maxLines: null,
                   initialValue: _formData['review'],
-                  decoration: const InputDecoration(labelText: 'Avaliação'),
+                  decoration: const InputDecoration(
+                      labelText: 'O que achou desse filme?'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Por favor insira uma review para o filme';
