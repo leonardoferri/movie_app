@@ -18,7 +18,7 @@ class _MovieFormState extends State<MovieForm> {
 
   Text labelMovieTitle = const Text("Novo Filme");
   double rate = 0;
-  double initialRating = 3;
+  double initialRating = 2.5;
 
   void _loadFormData(Movie movie) {
     if (movie != null) {
@@ -98,7 +98,7 @@ class _MovieFormState extends State<MovieForm> {
                 ),
                 RatingBar.builder(
                   initialRating: initialRating,
-                  minRating: 1,
+                  minRating: 0.5,
                   direction: Axis.horizontal,
                   allowHalfRating: true,
                   itemCount: 5,

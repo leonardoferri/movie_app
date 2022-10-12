@@ -11,6 +11,8 @@ class _ReviewDescription extends StatelessWidget {
 
   final Movie movie;
 
+  final String review = "Review: ";
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -47,15 +49,24 @@ class _ReviewDescription extends StatelessWidget {
               ),
               const Padding(padding: EdgeInsets.only(bottom: 10.0)),
               Text(
-                movie.review.trim().length > 196
-                    ? '${movie.review.trim().substring(0, 196)}...'
+                review,
+                maxLines: 1,
+                style: const TextStyle(
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                movie.review.trim().length > 182
+                    ? '${movie.review.trim().substring(0, 182)}...'
                     : movie.review,
-                maxLines: 7,
+                maxLines: 5,
+                textAlign: TextAlign.justify,
                 style: const TextStyle(
                   fontSize: 13.0,
                   color: Colors.black87,
                 ),
-              )
+              ),
             ],
           ),
         ),
