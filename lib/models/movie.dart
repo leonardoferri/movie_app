@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Movie {
   final String? id;
   final String title;
@@ -13,12 +11,4 @@ class Movie {
       this.imageUrl,
       required this.rating,
       required this.review});
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": title,
-        "imageUrl": imageUrl,
-        "rating": rating.toString(),
-        "review": review,
-      };
 }

@@ -1,4 +1,3 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -38,11 +37,6 @@ class _MovieFormState extends State<MovieForm> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-//    if (ModalRoute.of(context)!.settings.name!.contains('alter')) {
-//      final Movie movie = ModalRoute.of(context)!.settings.arguments as Movie;
-//      _loadFormData(movie);
-//    }
-
     if (ModalRoute.of(context)!.settings.arguments != null) {
       final Movie movie = ModalRoute.of(context)!.settings.arguments as Movie;
       _loadFormData(movie);
@@ -62,7 +56,6 @@ class _MovieFormState extends State<MovieForm> {
 
                 if (isValid) {
                   _form.currentState!.save();
-                  String id = Uuid().v4();
                   Provider.of<MoviesProvider>(context, listen: false).put(
                     Movie(
                         id: _formData['id'],
@@ -96,11 +89,11 @@ class _MovieFormState extends State<MovieForm> {
                     initialValue: _formData['imageUrl'],
                     decoration: const InputDecoration(labelText: 'URL pôster'),
                     onSaved: (value) => _formData['imageUrl'] = value!),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                TextField(
-                  decoration: const InputDecoration.collapsed(
+                const TextField(
+                  decoration: InputDecoration.collapsed(
                       hintText: 'Sua nota para o filme'),
                 ),
                 RatingBar.builder(
@@ -115,25 +108,9 @@ class _MovieFormState extends State<MovieForm> {
                     color: Colors.amber,
                   ),
                   onRatingUpdate: (rating) {
-                    //rate = rating;
                     _formData['rating'] = rating.toString();
                   },
-                  //onSaved: (value) => _formData['rating'] = value!
                 ),
-                //TextFormField(
-                //  initialValue: _formData['rating'],
-                //  decoration: const InputDecoration(labelText: 'Nota'),
-                //  validator: (value) {
-                //    if (value == null || value.isEmpty) {
-                //      return 'Por favor insira uma nota para o filme';
-                //    }
-                //    if (double.parse(value) < 1 || double.parse(value) > 5) {
-                //      return 'Por favor insira uma nota entre 1 a 5';
-                //    }
-                //    return null;
-                //  },
-                //  onSaved: (value) => _formData['rating'] = value!,
-                //),
                 TextFormField(
                   maxLines: null,
                   initialValue: _formData['review'],
